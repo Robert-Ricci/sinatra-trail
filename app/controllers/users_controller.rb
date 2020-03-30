@@ -5,5 +5,12 @@ class UsersController < ApplicationController
         erb :"user/signup"
     end
 
+    post "/signup" do 
+        user = User.create(params)
+    
+    end
+    get "/login" do
+        erb :"user/login"
+    end
 
 end
