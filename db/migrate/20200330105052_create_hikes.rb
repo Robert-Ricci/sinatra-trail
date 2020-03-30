@@ -1,4 +1,4 @@
-class Hikes < ActiveRecord::Migration
+class CreateHikes < ActiveRecord::Migration
   def change
     create_table :hikes do |t|
       t.string :name
