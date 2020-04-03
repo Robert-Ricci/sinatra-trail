@@ -1,4 +1,4 @@
-class Hikes < ActiveRecord::Base
+class Hike < ActiveRecord::Base
 
     belongs_to :user
     
