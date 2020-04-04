@@ -38,4 +38,15 @@ class HikesController < ApplicationController
         #binding.pry
         erb :'/hikes/edit'
     end
+
+    patch "/hikes/:id" do
+        hike = Hike.find_by(id: params[:id])
+        if hike && hike.user == current_user
+            hike.update(params[:hike])
+            redirect to "/hikes/#{hike.id}"
+        else
+            redirect to "/hikes"
+        end
+    end
+
 end
