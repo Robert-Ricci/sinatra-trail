@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+    get "/users" do
+        @users = User.all
+        erb :"users/index"
+    end
+    
     get "/signup" do 
         if is_logged_in?
             redirect to '/hikes'

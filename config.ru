@@ -5,7 +5,10 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 
+
+
 use Rack::MethodOverride
 use HikesController
 use UsersController
 run ApplicationController
+

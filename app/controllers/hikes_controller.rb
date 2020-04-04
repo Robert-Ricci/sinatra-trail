@@ -6,7 +6,7 @@ class HikesController < ApplicationController
         else 
           @hikes = Hike.all
            @user = current_user
-           erb  :'/users/show'
+           erb  :"hikes/index"
         end
     end
 
@@ -24,4 +24,11 @@ class HikesController < ApplicationController
         hike.save
         redirect to "/users/#{user.id}"
     end
+
+    get "/hikes/:id" do
+        @hike = Hike.find_by(id: params[:id])
+        erb :"hikes/show"
+    end
+
+
 end
