@@ -19,7 +19,6 @@ class HikesController < ApplicationController
 
     post "/hikes" do
         hike = Hike.create(params)
-        #binding.pry
         user = current_user
         hike.user = user
         hike.save
