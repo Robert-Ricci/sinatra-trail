@@ -26,9 +26,16 @@ class HikesController < ApplicationController
     end
 
     get "/hikes/:id" do
+        if !is_logged_in?
+            redirect to "/users/login"
+        end
         @hike = Hike.find_by(id: params[:id])
-        erb :"hikes/show"
+        erb :"/hikes/show"
     end
 
-
+    get "/hikes/:id/edit" do
+        @hike = Hike.find_by(id: params[:id])
+        #binding.pry
+        erb :'/hikes/edit'
+    end
 end

@@ -1,0 +1,14 @@
+<h1>Make your Changes<h1>
+
+<form action="/hikes/<%= @hike.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+<label>Name:</label>
+<input type="text" name="hike[name]" value="<%= @hike.name%>"><br>
+<label>Location:</label>
+<input type="text" name="hike[location]" value="<%= @hike.location%>"><br>
+<label>Milage:</label>
+<input type="text" name="hike[milage]" value="<%= @hike.milage%>"><br>
+<label>Joined By:</label>
+<input type="text" name="hike[join_by]" value="<%= @hike.join_by%>"><br>
+<input type="submit" value="Edit Hike!">
+</form>
