@@ -12,9 +12,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <style>
+
+
+    .links {
+       float: right;
+        display: inline;
+        padding-left: 0;
+        margin-right: 4px;
+     }
+
+     .links a:link, .links a:visited, .links a:hover, .links a:active {
+        color: darkblue;
+     }
+</style>
   </head>
   <body>
     <div class="wrapper">
+    <% if is_logged_in? %>
+        <p class="links"><a href="/logout" class="logout">Log Out</a></p>
+        <p class="links"><a href="/users/<%=current_user.id if is_logged_in?%>">My Hikes</a></p>
+        <p class="links"><a href="/recipes/new">New Hike</a></p>
+        <p class="links"><a href="/recipes">All Hikes</a></p>
+        <p class="links"><a href="/users">All Users</a></p>
+      <%end%>
 
         <%= yield %>
 
