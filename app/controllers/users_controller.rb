@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect to "/users/#{user.id}/index"
+            redirect to "/users/#{user.id}"
         else
             redirect to '/signup'
         end
@@ -44,5 +44,10 @@ class UsersController < ApplicationController
           redirect to '/'
         end
         erb :'users/show'
+      end
+
+      get "/logout" do 
+        session.clear
+        redirect to "login"
       end
 end
