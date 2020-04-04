@@ -1,4 +1,4 @@
-<h1> <%= current_user.username%></h1>
+<h1> <%= @hike.name%></h1>
 
 <br>
 <br>
@@ -8,4 +8,12 @@
 <p>Hike Milage: <%= @hike.milage %> miles </p>
 <p>Hike Partners:<%= @hike.join_by %> </p>
 
+<% if current_user == @hike.user%>
 <p><a href="/hikes/<%= @hike.id%>/edit">Edit Hike</a></p>
+
+
+<form action="/hikes/<%= @hike.id%>/delete" method="post">
+<input type="hidden" name="_method" value="delete">
+<input type="submit"  value="Delete">
+</form>
+<%end%>

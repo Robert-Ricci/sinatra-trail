@@ -1,13 +1,8 @@
 class HikesController < ApplicationController
 
-    get "/hikes" do 
-        if !is_logged_in?
-            redirect to "/login"
-        else 
-          @hikes = Hike.all
-           @user = current_user
-           erb  :"hikes/index"
-        end
+    get "/hikes" do
+        @hikes = Hike.all 
+        erb :"/hikes/index"
     end
 
     get "/hikes/new" do
@@ -34,8 +29,10 @@ class HikesController < ApplicationController
     end
 
     get "/hikes/:id/edit" do
+        if !is_logged_in?
+            redirect to "/users/login"
+        end
         @hike = Hike.find_by(id: params[:id])
-        #binding.pry
         erb :'/hikes/edit'
     end
 
@@ -49,4 +46,11 @@ class HikesController < ApplicationController
         end
     end
 
+    delete "/hikes/:id/delete" do
+        hike = Hike.find_by(id: params[:id])
+        if hike && hike.user == current_user
+            hike.destroy
+        end
+        redirect to "/hikes"
+    end
 end
