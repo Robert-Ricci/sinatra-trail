@@ -6,13 +6,15 @@ Getting Started
 You will need to fork and clone the repo from https://github.com/rmricci121/sinatra-trail. 
 
 Prerequisites
-You will need a text editor to run the app. 
+Ruby
+Sqlite3 
 
-Give examples
 Installing
-You will need to run 'bundle install' to install all the Gems you need to run the app.
-
-After you intall all the Gems, you can run 'shotgun' in the ternimal, then go to 'http://localhost:9393/' or your local server. 
+1. Run 'bundle install' to install all the Gems you need to run the app.
+2. Run db:migrate to get your data base
+3. Intall all the Gems 
+4. Run 'shotgun' in the ternimal 
+5. Then go to 'http://localhost:9393/' or your local server. 
 
 Built With
 Sinatra - The web framework used
