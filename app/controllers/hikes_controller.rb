@@ -29,7 +29,7 @@ class HikesController < ApplicationController
     end
 
     get "/hikes/:id/edit" do
-        if !is_logged_in?
+        if !is_logged_in? || current_user
             redirect to "/users/login"
         end
         @hike = Hike.find_by(id: params[:id])
