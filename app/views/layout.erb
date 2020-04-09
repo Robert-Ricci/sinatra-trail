@@ -28,6 +28,7 @@
 </style>
   </head>
   <body>
+  
     <div class="wrapper">
     <% if is_logged_in? %>
         <p class="links"><a href="/logout" class="logout">Log Out</a></p>
@@ -36,6 +37,14 @@
         <p class="links"><a href="/hikes">All Hikes</a></p>
         <p class="links"><a href="/users">All Users</a></p>
       <%end%>
+  
+  <% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
 
         <%= yield %>
 

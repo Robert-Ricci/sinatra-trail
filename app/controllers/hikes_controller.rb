@@ -17,6 +17,7 @@ class HikesController < ApplicationController
         user = current_user
         hike.user = user
         hike.save
+        flash[:hike] = "Congrats, you created a hike!"
         redirect to "/users/#{user.id}"
     end
 
@@ -29,7 +30,7 @@ class HikesController < ApplicationController
     end
 
     get "/hikes/:id/edit" do
-        if !is_logged_in? || current_user
+        if !is_logged_in? || !current_user
             redirect to "/users/login"
         end
         @hike = Hike.find_by(id: params[:id])

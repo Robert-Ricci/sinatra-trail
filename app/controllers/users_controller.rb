@@ -19,7 +19,8 @@ class UsersController < ApplicationController
             session[:user_id] = user.id 
             redirect to "users/#{user.id}"
         else
-            redirect to "/signup"
+            flash[:signup_error] = "Invalid Signup, please try again."
+            erb :"/users/signup"
         end
     end
 
@@ -37,7 +38,8 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to "/users/#{user.id}"
         else
-            redirect to '/signup'
+            flash.now[:login_error] = "Invalid Login, please try again."
+            erb :'/users/login'
         end
     end
 

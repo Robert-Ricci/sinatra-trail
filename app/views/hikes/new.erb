@@ -1,5 +1,9 @@
 <h1>Create a Hike</h1>
-
+<font color="red">
+  <% if flash.has?(:hike) %>
+    <%= flash[:hike] %>
+  <% end %>
+</font>
 <form method="post" action="/hikes">
 <label>Name:</label>
 <input type="text" name="name" ></br>
