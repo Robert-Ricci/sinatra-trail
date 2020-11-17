@@ -7,8 +7,15 @@ gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem "rack", ">= 2.2.3"
 gem 'require_all'
-# gem 'sqlite3', :group => :development
-gem 'pg'
+
+group :development do 
+    gem 'sqlite3'
+end
+
+group :production do 
+    gem 'pg'
+end
+
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
